@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueControlApp", "EstoqueControlApp\EstoqueControlApp.csproj", "{129D204E-BBB5-4878-8AF5-62434DE0331B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueControlBusiness", "EstoqueControlBusiness\EstoqueControlBusiness.csproj", "{3DF6251B-F876-4DCF-9F49-FEF9D21CEE35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueControlData", "EstoqueControlData\EstoqueControlData.csproj", "{F4C4D39D-37CC-4DBF-A214-5B1BD0AB9E52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueControlBusinessTest", "EstoqueControlBusinessTest\EstoqueControlBusinessTest.csproj", "{EE867B0A-8052-4A50-9B8B-8B53A78D3B8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{129D204E-BBB5-4878-8AF5-62434DE0331B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{129D204E-BBB5-4878-8AF5-62434DE0331B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{129D204E-BBB5-4878-8AF5-62434DE0331B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{129D204E-BBB5-4878-8AF5-62434DE0331B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DF6251B-F876-4DCF-9F49-FEF9D21CEE35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DF6251B-F876-4DCF-9F49-FEF9D21CEE35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DF6251B-F876-4DCF-9F49-FEF9D21CEE35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DF6251B-F876-4DCF-9F49-FEF9D21CEE35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4C4D39D-37CC-4DBF-A214-5B1BD0AB9E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C4D39D-37CC-4DBF-A214-5B1BD0AB9E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C4D39D-37CC-4DBF-A214-5B1BD0AB9E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C4D39D-37CC-4DBF-A214-5B1BD0AB9E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE867B0A-8052-4A50-9B8B-8B53A78D3B8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE867B0A-8052-4A50-9B8B-8B53A78D3B8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE867B0A-8052-4A50-9B8B-8B53A78D3B8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE867B0A-8052-4A50-9B8B-8B53A78D3B8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
