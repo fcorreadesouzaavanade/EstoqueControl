@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EstoqueControlBusiness.Modelos;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,19 @@ namespace EstoqueControlData.Context
         override protected void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(typeof(EstoqueControlDbContext).Assembly);
+
+            foreach(var entity in builder.Model.GetEntityTypes())
+            {
+                var possuiCampoDataRemocao = entity.FindProperty("DataRemocao");
+                if(possuiCampoDataRemocao != null && possuiCampoDataRemocao.ClrType == typeof(DateTime))
+                {
+                    var param = Expression.Parameter(entity.ClrType, "e");
+                    var filtro = Expression.Lambda(Expression.NotEqual(param, Expression.Constant(null, typeof(object))), param);
+                    entity.SetQueryFilter(filtro);
+                }
+            }
+            
+            
 
             foreach(var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
                 relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;  
