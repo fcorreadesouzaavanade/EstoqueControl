@@ -1,3 +1,4 @@
+using EstoqueControlBusiness.Interfaces.Notificador;
 using EstoqueControlBusiness.Interfaces.Repository;
 using EstoqueControlBusiness.Interfaces.Services;
 using EstoqueControlBusiness.Modelos;
@@ -9,7 +10,7 @@ namespace EstoqueControlBusiness.Services
     {
         private readonly IFornecedorRepository _fornecedorRepository;
 
-        public FornecedorService(IFornecedorRepository fornecedorRepository)
+        public FornecedorService(IFornecedorRepository fornecedorRepository, INotificador notificador) : base(notificador)
         {
             _fornecedorRepository = fornecedorRepository;
         }

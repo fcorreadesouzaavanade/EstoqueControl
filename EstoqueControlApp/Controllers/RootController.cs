@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 namespace EstoqueControlApp.Controllers
 {
     [ApiController]
-    public class RootController : ControllerBase
+    public abstract class RootController : ControllerBase
     {
         protected INotificador _notificador;
 
@@ -51,8 +51,5 @@ namespace EstoqueControlApp.Controllers
                 errors = _notificador.ObterNotificacoes()
             });
         }
-
-
-
     }
 }

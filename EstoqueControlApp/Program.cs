@@ -13,11 +13,23 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<EstoqueControlDbContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("EstoqueControlConnectString")));
+builder.Services.AddDbContext<EstoqueControlDbContext>(opt => 
+    opt.UseSqlServer(configuration.GetConnectionString("EstoqueControlConnectString")));
+
 builder.Services.InjetarDependencias();
 
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<EstoqueControlDbContext>();
+    if (context.Database.GetPendingMigrations().Any())
+    {
+        context.Database.Migrate();
+    }
+}
 
 app.UseSwagger();
 app.UseSwaggerUI();
