@@ -7,6 +7,8 @@ namespace EstoqueControlBusiness.Modelos
 {
     public class Categoria : _BaseModel
     {
-        public string Nome { get; set; }        
+        public string Nome { get; set; }
+
+        public IEnumerable<Produto> Produtos { get; set; }   
     }
 }
