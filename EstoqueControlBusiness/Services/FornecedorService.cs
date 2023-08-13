@@ -2,6 +2,7 @@ using EstoqueControlBusiness.Interfaces.Notificador;
 using EstoqueControlBusiness.Interfaces.Repository;
 using EstoqueControlBusiness.Interfaces.Services;
 using EstoqueControlBusiness.Modelos;
+using EstoqueControlBusiness.Validations;
 
 namespace EstoqueControlBusiness.Services
 {
@@ -27,11 +28,13 @@ namespace EstoqueControlBusiness.Services
 
         public async Task AdicionarFornecedor(Fornecedor fornecedor)
         {
+            if(!Validar(new FornecedorValidator(), fornecedor)) return;
             await _fornecedorRepository.Adicionar(fornecedor);
         }
 
         public async Task AtualizarFornecedor(Fornecedor fornecedor)
         {
+            if(!Validar(new FornecedorValidator(), fornecedor)) return;
             await _fornecedorRepository.Atualizar(fornecedor);
         }
 

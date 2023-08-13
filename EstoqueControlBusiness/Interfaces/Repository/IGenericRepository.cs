@@ -9,7 +9,7 @@ namespace EstoqueControlBusiness.Repository
     public interface IGenericRepository<Entity> : IDisposable where Entity : _BaseModel
     {
         Task<IEnumerable<Entity>> ObterTodosAsync();
-        Task<Entity?> ObterPorId(Guid id);
+        Task<Entity> ObterPorId(Guid id);
         Task Adicionar(Entity entity);        
         Task Atualizar(Entity entity);
         Task Excluir(Guid id);

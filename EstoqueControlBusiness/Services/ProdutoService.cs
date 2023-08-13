@@ -2,6 +2,7 @@ using EstoqueControlBusiness.Interfaces.Notificador;
 using EstoqueControlBusiness.Interfaces.Repository;
 using EstoqueControlBusiness.Interfaces.Services;
 using EstoqueControlBusiness.Modelos;
+using EstoqueControlBusiness.Validators;
 
 namespace EstoqueControlBusiness.Services
 {
@@ -25,10 +26,12 @@ namespace EstoqueControlBusiness.Services
         }
         public async Task AdicionarProduto(Produto produto)
         {
+            if(!Validar(new ProdutoValidator(), produto)) return;
             await _produtoRepository.Adicionar(produto);
         }
         public async Task AtualizarProduto(Produto produto)
         {
+            if(!Validar(new ProdutoValidator(), produto)) return;
             await _produtoRepository.Atualizar(produto);
         }
 
