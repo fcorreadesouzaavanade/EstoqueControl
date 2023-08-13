@@ -25,7 +25,7 @@ namespace EstoqueControlApp.Controllers
             return _notificador.ObterNotificacoes();
         }
 
-        protected IActionResult ResultadoCustomizado(ModelStateDictionary modelstate)
+        protected ActionResult ResultadoCustomizado(ModelStateDictionary modelstate)
         {
             if(!modelstate.IsValid)
                 foreach(var erro in modelstate.Values.SelectMany(m => m.Errors))
@@ -36,7 +36,7 @@ namespace EstoqueControlApp.Controllers
             return ResultadoCustomizado();
         }
 
-        protected IActionResult ResultadoCustomizado(object dataReturn = null)
+        protected ActionResult ResultadoCustomizado(object dataReturn = null)
         {
             if (EstaValido())
                 return Ok(new

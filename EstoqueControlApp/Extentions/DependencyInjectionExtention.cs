@@ -17,6 +17,7 @@ namespace EstoqueControlApp.Extentions
         {
             services.AddScoped<INotificador, Notificador>();
 
+            services.AddScoped<ICategoriaService, CategoriaService>();
             services.AddScoped<IFornecedorService, FornecedorService>();
             services.AddScoped<IProdutoService, ProdutoService>();
 

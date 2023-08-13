@@ -17,7 +17,7 @@ builder.Services.AddDbContext<EstoqueControlDbContext>(opt =>
     opt.UseSqlServer(configuration.GetConnectionString("EstoqueControlConnectString")));
 
 builder.Services.InjetarDependencias();
-
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
@@ -32,6 +32,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseSwagger();
+
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
