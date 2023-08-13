@@ -10,9 +10,9 @@ namespace EstoqueControlBusiness.Repository
     {
         Task<IEnumerable<Entity>> ObterTodosAsync();
         Task<Entity?> ObterPorId(Guid id);
-        Task Insert(Entity entity);        
-        Task Update(Entity entity);
-        Task Delete(Guid id);
-        Task<bool> SaveChanges();
+        Task Adicionar(Entity entity);        
+        Task Atualizar(Entity entity);
+        Task Excluir(Guid id);
+        Task<bool> SalvarAlteracoes();
     }
 }

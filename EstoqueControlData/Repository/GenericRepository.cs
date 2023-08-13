@@ -30,26 +30,26 @@ namespace EstoqueControlData.Repository
         {
             return await _dbSet.FindAsync(id);
         }
-        public async Task Insert(Entity entity)
+        public async Task Adicionar(Entity entity)
         {
             _dbSet.Add(entity);
-            await SaveChanges();
+            await SalvarAlteracoes();
         }
 
-        public async Task Update(Entity entity)
+        public async Task Atualizar(Entity entity)
         {
             _dbSet.Update(entity);
-            await SaveChanges();
+            await SalvarAlteracoes();
         }
-        public async Task Delete(Guid id)
+        public async Task Excluir(Guid id)
         {
             var entity = await ObterPorId(id);
             if(entity is null) return;
             
             entity.DataRemocao = DateTime.Now;
-            await SaveChanges();            
+            await SalvarAlteracoes();            
         }
-        public async Task<bool> SaveChanges()
+        public async Task<bool> SalvarAlteracoes()
         {
             return await _context.CommitAsync();
         }
@@ -57,5 +57,6 @@ namespace EstoqueControlData.Repository
         {
             _context?.Dispose();
         }
+
     }
 }
