@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EstoqueControlBusiness.Interfaces.Notificador;
 using EstoqueControlBusiness.Interfaces.Repository;
+using EstoqueControlBusiness.Interfaces.Services;
+using EstoqueControlBusiness.Notificador;
+using EstoqueControlBusiness.Services;
 using EstoqueControlData.Repository;
 
 namespace EstoqueControlApp.Extentions
@@ -11,6 +15,11 @@ namespace EstoqueControlApp.Extentions
     {
         public static IServiceCollection InjetarDependencias(this IServiceCollection services)
         {
+            services.AddScoped<INotificador, Notificador>();
+
+            services.AddScoped<IFornecedorService, FornecedorService>();
+            services.AddScoped<IProdutoService, ProdutoService>();
+
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
             services.AddScoped<IFornecedorRepository, FornecedorRepository>();
