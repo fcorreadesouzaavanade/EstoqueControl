@@ -20,7 +20,7 @@ namespace EstoqueControlApp.Controllers
             return !_notificador.TemNotifiicacoes();
         }
 
-        public IEnumerable<Notificacao> ObtemNotificacoes()
+        protected IEnumerable<Notificacao> ObtemNotificacoes()
         {
             return _notificador.ObterNotificacoes();
         }
