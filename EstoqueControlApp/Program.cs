@@ -1,3 +1,4 @@
+using EstoqueControlApp.Extentions;
 using EstoqueControlData.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<EstoqueControlDbContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("EstoqueControlConnectString")));
+builder.Services.InjetarDependencias();
 
 
 var app = builder.Build();
