@@ -17,19 +17,6 @@ namespace EstoqueControlData.Context
         {
             builder.ApplyConfigurationsFromAssembly(typeof(EstoqueControlDbContext).Assembly);
 
-            foreach(var entity in builder.Model.GetEntityTypes())
-            {
-                var possuiCampoDataRemocao = entity.FindProperty("DataRemocao");
-                if(possuiCampoDataRemocao != null && possuiCampoDataRemocao.ClrType == typeof(DateTime))
-                {
-                    var param = Expression.Parameter(entity.ClrType, "e");
-                    var filtro = Expression.Lambda(Expression.NotEqual(param, Expression.Constant(null, typeof(object))), param);
-                    entity.SetQueryFilter(filtro);
-                }
-            }
-            
-            
-
             foreach(var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
                 relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;  
         }
@@ -44,8 +31,11 @@ namespace EstoqueControlData.Context
                     entry.Property("DataAtualizacao").CurrentValue = DateTime.Now;
                 }
             
-                if(entry.State == EntityState.Modified && !entry.Property("DataRemocao").IsModified)                
-                    entry.Property("DataAtualizacao").CurrentValue = DateTime.Now;                
+                if(entry.State == EntityState.Modified)
+                {
+                    entry.Property("DataAtualizacao").CurrentValue = DateTime.Now;
+                    entry.Property("DataRegistro").IsModified = false;
+                }
             }
             
             return await base.SaveChangesAsync() > 0;

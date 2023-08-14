@@ -23,11 +23,6 @@ namespace EstoqueControlData.Configuration
             .HasDefaultValueSql("CURRENT_TIMESTAMP")
             .HasColumnType("DATETIME");
             
-            builder.Property(e => e.DataRemocao)
-            .HasColumnType("DATETIME");
-            
-            builder.Ignore(a => a.Ativo);
-
             ConcreteConfigure(builder);
         }
 

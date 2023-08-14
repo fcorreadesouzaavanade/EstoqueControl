@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace EstoqueControlData.Repository
 {
     public abstract class GenericRepository<Entity> : IGenericRepository<Entity>
-        where Entity : _BaseModel
+        where Entity : _BaseModel, new()
     {
 
         private readonly EstoqueControlDbContext _context;
@@ -26,9 +26,9 @@ namespace EstoqueControlData.Repository
         {
             return await _dbSet.AsNoTracking().ToListAsync();
         }
-        public async Task<Entity?> ObterPorId(Guid id)
+        public async Task<Entity> ObterPorId(Guid id)
         {
-            return await _dbSet.FindAsync(id);
+            return await _dbSet.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
         }
         public async Task Adicionar(Entity entity)
         {
@@ -43,10 +43,7 @@ namespace EstoqueControlData.Repository
         }
         public async Task Excluir(Guid id)
         {
-            var entity = await ObterPorId(id);
-            if(entity is null) return;
-            
-            entity.DataRemocao = DateTime.Now;
+            _dbSet.Remove(new Entity() { Id = id });
             await SalvarAlteracoes();            
         }
         public async Task<bool> SalvarAlteracoes()

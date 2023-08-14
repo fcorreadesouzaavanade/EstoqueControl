@@ -13,11 +13,8 @@ namespace EstoqueControlBusiness.Modelos
         }
 
         public Guid Id { get; set; }
-
-        public bool Ativo {get => DataRemocao != null; }
         public DateTime DataRegistro { get; set; }
         public DateTime DataAtualizacao { get; set; }
-        public DateTime? DataRemocao { get; set; }
 
     }
 }
