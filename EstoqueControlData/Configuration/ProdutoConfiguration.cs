@@ -25,13 +25,15 @@ namespace EstoqueControlData.Configuration
             .HasMaxLength(240);
 
             builder.Property(p => p.ValorUnitario)
-            .IsRequired()
-            .HasColumnType("decimal")
-            .HasPrecision(2);
+            .IsRequired();
 
             builder.Property(p => p.QuantidadeEmEstoque)
             .IsRequired()
             .HasColumnType("int");
+
+            builder.HasOne(p => p.Categoria)
+            .WithMany(c => c.Produtos)
+            .HasForeignKey(p => p.CategoriaId);
 
 
         }

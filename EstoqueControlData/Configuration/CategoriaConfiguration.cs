@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EstoqueControlData.Configuration
 {
-    public class CategoraConfiguration : _BaseConfiguration<Categoria>
+    public class CategoriaConfiguration : _BaseConfiguration<Categoria>
     {
         public override void ConcreteConfigure(EntityTypeBuilder<Categoria> builder)
         {

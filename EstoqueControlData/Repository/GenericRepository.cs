@@ -10,11 +10,11 @@ using Microsoft.EntityFrameworkCore;
 namespace EstoqueControlData.Repository
 {
     public abstract class GenericRepository<Entity> : IGenericRepository<Entity>
-        where Entity : _BaseModel
+        where Entity : _BaseModel, new()
     {
 
-        private readonly EstoqueControlDbContext _context;
-        private readonly DbSet<Entity> _dbSet;
+        protected readonly EstoqueControlDbContext _context;
+        protected readonly DbSet<Entity> _dbSet;
 
         protected GenericRepository(EstoqueControlDbContext context)
         {
@@ -26,30 +26,27 @@ namespace EstoqueControlData.Repository
         {
             return await _dbSet.AsNoTracking().ToListAsync();
         }
-        public async Task<Entity?> ObterPorId(Guid id)
+        public async Task<Entity> ObterPorId(Guid id)
         {
-            return await _dbSet.FindAsync(id);
+            return await _dbSet.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
         }
-        public async Task Insert(Entity entity)
+        public async Task Adicionar(Entity entity)
         {
             _dbSet.Add(entity);
-            await SaveChanges();
+            await SalvarAlteracoes();
         }
 
-        public async Task Update(Entity entity)
+        public async Task Atualizar(Entity entity)
         {
             _dbSet.Update(entity);
-            await SaveChanges();
+            await SalvarAlteracoes();
         }
-        public async Task Delete(Guid id)
+        public async Task Excluir(Guid id)
         {
-            var entity = await ObterPorId(id);
-            if(entity is null) return;
-            
-            entity.DataRemocao = DateTime.Now;
-            await SaveChanges();            
+            _dbSet.Remove(new Entity() { Id = id });
+            await SalvarAlteracoes();            
         }
-        public async Task<bool> SaveChanges()
+        public async Task<bool> SalvarAlteracoes()
         {
             return await _context.CommitAsync();
         }
@@ -57,5 +54,6 @@ namespace EstoqueControlData.Repository
         {
             _context?.Dispose();
         }
+
     }
 }
