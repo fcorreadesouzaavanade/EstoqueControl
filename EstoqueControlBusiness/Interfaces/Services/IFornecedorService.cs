@@ -4,7 +4,7 @@ namespace EstoqueControlBusiness.Interfaces.Services
 {
     public interface IFornecedorService
     {
-        Task<IEnumerable<Fornecedor>> ObterFornecedores ();
+        Task<IEnumerable<Fornecedor>> ObterTodosFornecedores ();
         Task<Fornecedor> ObterFornecedorPorId(Guid fornecedorId);
         Task AdicionarFornecedor(Fornecedor fornecedor);        
         Task AtualizarFornecedor(Fornecedor fornecedor);

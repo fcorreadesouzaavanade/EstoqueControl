@@ -26,7 +26,7 @@ namespace EstoqueControlApp.Controllers
         [HttpGet]
         public async Task<IEnumerable<CategoriaDTO>> ObterTodasCategorias()
         {
-            return  _mapper.Map<IEnumerable<CategoriaDTO>>(await _categoriaService.ObterCategorias());
+            return  _mapper.Map<IEnumerable<CategoriaDTO>>(await _categoriaService.ObterTodasCategorias());
         }
 
         [HttpGet("{categoriaId:Guid}")]

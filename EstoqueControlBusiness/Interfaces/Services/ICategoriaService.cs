@@ -8,7 +8,7 @@ namespace EstoqueControlBusiness.Interfaces.Services
 {
     public interface ICategoriaService
     {
-        Task<IEnumerable<Categoria>> ObterCategorias ();
+        Task<IEnumerable<Categoria>> ObterTodasCategorias ();
         Task<Categoria> ObterCategoriaPorId(Guid categoriaId);
         Task AdicionarCategoria(Categoria categoria);        
         Task AtualizarCategoria(Categoria categoria);

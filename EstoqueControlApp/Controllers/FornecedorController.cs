@@ -29,13 +29,13 @@ namespace EstoqueControlApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<FornecedorDTO>> ObterFornecedores()
+        public async Task<IEnumerable<FornecedorDTO>> ObterTodosFornecedores()
         {
-            return _mapper.Map<IEnumerable<FornecedorDTO>>(await _fornecedorService.ObterFornecedores());
+            return _mapper.Map<IEnumerable<FornecedorDTO>>(await _fornecedorService.ObterTodosFornecedores());
         }
 
         [HttpGet("{fornecedorId:Guid}")]
-        public async Task<ActionResult<FornecedorDTO>> ObterFornecedorId(Guid fornecedorId)
+        public async Task<ActionResult<FornecedorDTO>> ObterFornecedorPorId(Guid fornecedorId)
         {
             var fornecedor = await _fornecedorService.ObterFornecedorPorId(fornecedorId);
             if(fornecedor is null) return NotFound();
@@ -43,7 +43,7 @@ namespace EstoqueControlApp.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<FornecedorDTO>> AdicionarCategoria(FornecedorDTO fornecedorDTO)
+        public async Task<ActionResult<FornecedorDTO>> AdicionarFornecedor(FornecedorDTO fornecedorDTO)
         {
             if(!ModelState.IsValid) return ResultadoCustomizado(ModelState);
             await _fornecedorService.AdicionarFornecedor(_mapper.Map<Fornecedor>(fornecedorDTO));
@@ -51,7 +51,7 @@ namespace EstoqueControlApp.Controllers
         }
 
         [HttpPut("{fornecedorId:Guid}")]
-        public async Task<ActionResult<FornecedorDTO>> AtualizarCategoria(Guid fornecedorId, FornecedorDTO fornecedorDTO)
+        public async Task<ActionResult<FornecedorDTO>> AtualizarFornecedor(Guid fornecedorId, FornecedorDTO fornecedorDTO)
         {
             if(!ModelState.IsValid) return ResultadoCustomizado(ModelState);
             if(fornecedorId != fornecedorDTO.Id) return BadRequest();
@@ -62,7 +62,7 @@ namespace EstoqueControlApp.Controllers
         }
 
         [HttpDelete("{fornecedorId:Guid}")]
-        public async Task<ActionResult<FornecedorDTO>> ExcluirCategoria(Guid fornecedorId)
+        public async Task<ActionResult<FornecedorDTO>> ExcluirFonecedor(Guid fornecedorId)
         {
             var categoria = await _fornecedorService.ObterFornecedorPorId(fornecedorId);
             if(categoria is null) return NotFound();

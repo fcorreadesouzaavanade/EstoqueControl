@@ -16,7 +16,7 @@ namespace EstoqueControlBusiness.Services
             _fornecedorRepository = fornecedorRepository;
         }
 
-        public async Task<IEnumerable<Fornecedor>> ObterFornecedores()
+        public async Task<IEnumerable<Fornecedor>> ObterTodosFornecedores()
         {
             return await _fornecedorRepository.ObterFornecedoresEnderecos();
         }

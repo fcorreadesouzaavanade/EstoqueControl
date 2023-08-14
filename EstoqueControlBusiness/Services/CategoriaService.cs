@@ -15,7 +15,7 @@ namespace EstoqueControlBusiness.Services
             _categoriaRepository = categoriaRepository;
         }
 
-        public async Task<IEnumerable<Categoria>> ObterCategorias()
+        public async Task<IEnumerable<Categoria>> ObterTodasCategorias()
         {
             return await _categoriaRepository.ObterTodosAsync();
         }
