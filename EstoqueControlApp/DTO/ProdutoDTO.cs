@@ -9,6 +9,5 @@ namespace EstoqueControlApp.DTO
         public int QuantidadeEmEstoque { get; set; }
         public Guid FornecedorId { get; set; }
 
-        public FornecedorDTO Fornecedor { get; set; }
     }
 }

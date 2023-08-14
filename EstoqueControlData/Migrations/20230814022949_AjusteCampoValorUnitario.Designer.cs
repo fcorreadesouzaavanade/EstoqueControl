@@ -4,6 +4,7 @@ using EstoqueControlData.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstoqueControlData.Migrations
 {
     [DbContext(typeof(EstoqueControlDbContext))]
-    partial class EstoqueControlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230814022949_AjusteCampoValorUnitario")]
+    partial class AjusteCampoValorUnitario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -194,7 +197,8 @@ namespace EstoqueControlData.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("ValorUnitario")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(2)
+                        .HasColumnType("decimal(12,2)");
 
                     b.HasKey("Id");
 

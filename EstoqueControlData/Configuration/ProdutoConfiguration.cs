@@ -25,9 +25,7 @@ namespace EstoqueControlData.Configuration
             .HasMaxLength(240);
 
             builder.Property(p => p.ValorUnitario)
-            .IsRequired()
-            .HasColumnType("decimal")
-            .HasPrecision(2);
+            .IsRequired();
 
             builder.Property(p => p.QuantidadeEmEstoque)
             .IsRequired()

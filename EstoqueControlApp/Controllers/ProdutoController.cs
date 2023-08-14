@@ -56,13 +56,13 @@ namespace EstoqueControlApp.Controllers
         }
 
         [HttpDelete("{produtoId:Guid}")]
-        public async Task<ActionResult<FornecedorDTO>> ExcluirProduto(Guid produtoId)
+        public async Task<ActionResult<ProdutoDTO>> ExcluirProduto(Guid produtoId)
         {
             var produto = await _produtoService.ObterProdutoPorId(produtoId);
             if(produto is null) return NotFound();
 
             await _produtoService.ExcluirProduto(produtoId);
-            return ResultadoCustomizado(_mapper.Map<FornecedorDTO>(produto));
+            return ResultadoCustomizado(_mapper.Map<ProdutoDTO>(produto));
         }
     }
 }

@@ -18,12 +18,12 @@ namespace EstoqueControlBusiness.Services
 
         public async Task<IEnumerable<Fornecedor>> ObterFornecedores()
         {
-            return await _fornecedorRepository.ObterTodosAsync();
+            return await _fornecedorRepository.ObterFornecedoresEnderecos();
         }
 
         public async Task<Fornecedor> ObterFornecedorPorId(Guid fornecedorId)
         {
-            return await _fornecedorRepository.ObterPorId(fornecedorId);
+            return await _fornecedorRepository.ObterFornecedorEnderecoProdutos(fornecedorId);
         }
 
         public async Task AdicionarFornecedor(Fornecedor fornecedor)

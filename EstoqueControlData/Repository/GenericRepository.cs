@@ -13,8 +13,8 @@ namespace EstoqueControlData.Repository
         where Entity : _BaseModel, new()
     {
 
-        private readonly EstoqueControlDbContext _context;
-        private readonly DbSet<Entity> _dbSet;
+        protected readonly EstoqueControlDbContext _context;
+        protected readonly DbSet<Entity> _dbSet;
 
         protected GenericRepository(EstoqueControlDbContext context)
         {

@@ -11,7 +11,7 @@ namespace EstoqueControlApp.AutoMapper
         {
             CreateMap<Categoria, CategoriaDTO>().ReverseMap();
             CreateMap<Endereco, EnderecoDTO>().ReverseMap();
-            CreateMap<FornecedorDTO, FornecedorDTO>().ReverseMap();
+            CreateMap<Fornecedor, FornecedorDTO>().ReverseMap();
             CreateMap<Produto, ProdutoDTO>().ReverseMap();
         }
     }
