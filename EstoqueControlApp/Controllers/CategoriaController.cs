@@ -24,13 +24,13 @@ namespace EstoqueControlApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CategoriaDTO>> ObterCategorias()
+        public async Task<IEnumerable<CategoriaDTO>> ObterTodasCategorias()
         {
             return  _mapper.Map<IEnumerable<CategoriaDTO>>(await _categoriaService.ObterCategorias());
         }
 
         [HttpGet("{categoriaId:Guid}")]
-        public async Task<ActionResult<CategoriaDTO>> ObterCategoria(Guid categoriaId)
+        public async Task<ActionResult<CategoriaDTO>> ObterCategoriaPorId(Guid categoriaId)
         {
             var categoria = await _categoriaService.ObterCategoriaPorId(categoriaId);
             if(categoria is null) return NotFound();

@@ -8,6 +8,7 @@ namespace EstoqueControlApp.DTO
         public decimal ValorUnitario { get; set; }
         public int QuantidadeEmEstoque { get; set; }
         public Guid FornecedorId { get; set; }
+        public Guid CategoriaId { get; set; }	
 
     }
 }

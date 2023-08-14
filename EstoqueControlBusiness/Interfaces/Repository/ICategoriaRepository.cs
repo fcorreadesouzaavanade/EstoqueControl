@@ -7,5 +7,8 @@ using EstoqueControlBusiness.Repository;
 
 namespace EstoqueControlBusiness.Interfaces.Repository
 {
-    public interface ICategoriaRepository : IGenericRepository<Categoria> { }
+    public interface ICategoriaRepository : IGenericRepository<Categoria>
+    {
+        Task<Categoria> ObterCategoriaProdutosPorId(Guid categoriaId);
+    }
 }

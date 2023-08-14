@@ -31,6 +31,10 @@ namespace EstoqueControlData.Configuration
             .IsRequired()
             .HasColumnType("int");
 
+            builder.HasOne(p => p.Categoria)
+            .WithMany(c => c.Produtos)
+            .HasForeignKey(p => p.CategoriaId);
+
 
         }
     }

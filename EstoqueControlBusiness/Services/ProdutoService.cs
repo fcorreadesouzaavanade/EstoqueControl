@@ -20,6 +20,12 @@ namespace EstoqueControlBusiness.Services
         {
            return await  _produtoRepository.ObterTodosAsync();
         }
+        
+        public async Task<IEnumerable<Produto>> ObterTodosProdutosPorCategoria(Guid categoriaId)
+        {
+            return await _produtoRepository.ObterTodosProdutosPorCategoria(categoriaId);
+        }
+
         public async Task<Produto> ObterProdutoPorId(Guid produtoId)
         {
             return await _produtoRepository.ObterPorId(produtoId);
@@ -39,5 +45,6 @@ namespace EstoqueControlBusiness.Services
         {
             await _produtoRepository.Excluir(produtoId);
         }
+
     }
 }

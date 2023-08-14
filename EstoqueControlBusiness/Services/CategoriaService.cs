@@ -22,7 +22,7 @@ namespace EstoqueControlBusiness.Services
 
         public async Task<Categoria> ObterCategoriaPorId(Guid categoriaId)
         {
-            return await _categoriaRepository.ObterPorId(categoriaId);
+            return await _categoriaRepository.ObterCategoriaProdutosPorId(categoriaId);
         }
 
         public async Task AdicionarCategoria(Categoria categoria)

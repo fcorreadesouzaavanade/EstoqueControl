@@ -9,9 +9,10 @@ namespace EstoqueControlBusiness.Interfaces.Services
     public interface IProdutoService
     {
         Task<IEnumerable<Produto>> ObterTodosProdutos();
+        Task<IEnumerable<Produto>> ObterTodosProdutosPorCategoria(Guid categoriaId);
         Task<Produto> ObterProdutoPorId(Guid produtoId);
         Task AdicionarProduto(Produto produto);
         Task AtualizarProduto(Produto produto);
-        Task ExcluirProduto(Guid produtoId);        
+        Task ExcluirProduto(Guid produtoId);
     }
 }

@@ -28,6 +28,12 @@ namespace EstoqueControlApp.Controllers
             return _mapper.Map<IEnumerable<ProdutoDTO>>(await _produtoService.ObterTodosProdutos());
         }
 
+        [HttpGet("categoria/{categoriaId:Guid}")]
+        public async Task<IEnumerable<ProdutoDTO>> ObterTodosProdutosPorCategoria(Guid categoriaId)
+        {
+            return _mapper.Map<IEnumerable<ProdutoDTO>>(await _produtoService.ObterTodosProdutosPorCategoria(categoriaId));
+        }
+
         [HttpGet("{produtoId:Guid}")]
         public async Task<ActionResult<ProdutoDTO>> ObterProdutoId(Guid produtoId)
         {
@@ -61,7 +67,7 @@ namespace EstoqueControlApp.Controllers
             var produto = await _produtoService.ObterProdutoPorId(produtoId);
             if(produto is null) return NotFound();
 
-            await _produtoService.ExcluirProduto(produtoId);
+            await _produtoService.ExcluirProduto(produtoId);            
             return ResultadoCustomizado(_mapper.Map<ProdutoDTO>(produto));
         }
     }
