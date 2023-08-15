@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EstoqueControlData.Configuration
 {
-    public class FornecedorConfiguration : _BaseConfiguration<Fornecedor>
+    public class FornecedorConfiguration : BaseConfiguration<Fornecedor>
     {
         public override void ConcreteConfigure(EntityTypeBuilder<Fornecedor> builder)
         {

@@ -13,11 +13,11 @@ namespace EstoqueControlData.Context
         public DbSet<Fornecedor> Fornecedores { get; set;}
         public DbSet<Produto> Produtos{ get; set; }
 
-        override protected void OnModelCreating(ModelBuilder builder)
+        override protected void OnModelCreating(ModelBuilder modelBuilder)
         {
-            builder.ApplyConfigurationsFromAssembly(typeof(EstoqueControlDbContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(EstoqueControlDbContext).Assembly);
 
-            foreach(var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            foreach(var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
                 relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;  
         }
 

@@ -20,7 +20,7 @@ namespace EstoqueControlData.Repository
             return await _context.Fornecedores.AsNoTracking()
                 .Include(f => f.Endereco)
                 .Include(f => f.Produtos)
-                .FirstOrDefaultAsync(f => f.Id == fornecedorId);
+                .FirstOrDefaultAsync(f => f.Id == fornecedorId) ?? new Fornecedor();
         }
     }
 }

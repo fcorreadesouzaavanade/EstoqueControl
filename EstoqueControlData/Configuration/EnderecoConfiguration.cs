@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EstoqueControlData.Configuration
 {
-    public class EnderecoConfiguration : _BaseConfiguration<Endereco>
+    public class EnderecoConfiguration : BaseConfiguration<Endereco>
     {
         public override void ConcreteConfigure(EntityTypeBuilder<Endereco> builder)
         {

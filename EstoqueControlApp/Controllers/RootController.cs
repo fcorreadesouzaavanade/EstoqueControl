@@ -10,7 +10,7 @@ namespace EstoqueControlApp.Controllers
     {
         protected INotificador _notificador;
 
-        public RootController(INotificador notificador)
+        protected RootController(INotificador notificador)
         {
             _notificador = notificador;
         }

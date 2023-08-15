@@ -1,5 +1,4 @@
 using EstoqueControlBusiness.Modelos;
-using EstoqueControlBusiness.Repository;
 
 namespace EstoqueControlBusiness.Interfaces.Repository
 {
