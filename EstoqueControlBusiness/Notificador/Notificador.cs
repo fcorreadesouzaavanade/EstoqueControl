@@ -8,7 +8,7 @@ namespace EstoqueControlBusiness.Notificador
 {
     public class Notificador : INotificador
     {
-        private List<Notificacao> notificacoes;
+        readonly List<Notificacao> notificacoes;
 
         public Notificador()
         {

@@ -1,6 +1,7 @@
-namespace EstoqueControlApp.DTO
+namespace EstoqueControlApp.Dto
 {
-    public class EnderecoDTO
+    public class EnderecoDto
+    
     {
         public string Rua { get; set; }
         public string Numero { get; set; }

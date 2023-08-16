@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EstoqueControlBusiness.Modelos
 {
-    public class Endereco : _BaseModel
+    public class Endereco : BaseModel
     {
         public string Rua { get; set; }
         public string Numero { get; set; }

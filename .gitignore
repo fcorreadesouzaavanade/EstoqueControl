@@ -19,7 +19,8 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
-
+conf
+ 
 **/appsettings.json
 appsettings.json
 

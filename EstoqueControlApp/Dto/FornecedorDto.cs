@@ -1,6 +1,6 @@
-namespace EstoqueControlApp.DTO
+namespace EstoqueControlApp.Dto
 {
-    public class FornecedorDTO
+    public class FornecedorDto
     {
         public Guid Id {get; set; }
         public string Nome { get; set; }
@@ -11,7 +11,7 @@ namespace EstoqueControlApp.DTO
 
         public Guid EnderecoId { get; set; }
 
-         public IEnumerable<ProdutoDTO> Produtos { get; set; }
-         public EnderecoDTO Endereco{ get; set; }
+         public IEnumerable<ProdutoDto> Produtos { get; set; }
+         public EnderecoDto Endereco{ get; set; }
     }
 }

@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EstoqueControlData.Configuration
 {
-    public abstract class _BaseConfiguration<T> : IEntityTypeConfiguration<T>
-        where T : _BaseModel
+    public abstract class BaseConfiguration<T> : IEntityTypeConfiguration<T>
+        where T : BaseModel
     {
         public void Configure(EntityTypeBuilder<T> builder)
         {

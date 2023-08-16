@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EstoqueControlBusiness.Interfaces.Repository;
 using EstoqueControlBusiness.Modelos;
-using EstoqueControlBusiness.Repository;
 using EstoqueControlData.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace EstoqueControlData.Repository
 {
     public abstract class GenericRepository<Entity> : IGenericRepository<Entity>
-        where Entity : _BaseModel, new()
+        where Entity : BaseModel, new()
     {
 
         protected readonly EstoqueControlDbContext _context;
@@ -28,7 +28,7 @@ namespace EstoqueControlData.Repository
         }
         public async Task<Entity> ObterPorId(Guid id)
         {
-            return await _dbSet.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
+            return await _dbSet.AsNoTracking().Where(e => e.Id == id).FirstAsync();
         }
         public async Task Adicionar(Entity entity)
         {

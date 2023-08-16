@@ -1,6 +1,6 @@
 
 using AutoMapper;
-using EstoqueControlApp.DTO;
+using EstoqueControlApp.Dto;
 using EstoqueControlBusiness.Modelos;
 
 namespace EstoqueControlApp.AutoMapper
@@ -9,10 +9,10 @@ namespace EstoqueControlApp.AutoMapper
     {
         public MapperConfig()
         {
-            CreateMap<Categoria, CategoriaDTO>().ReverseMap();
-            CreateMap<Endereco, EnderecoDTO>().ReverseMap();
-            CreateMap<Fornecedor, FornecedorDTO>().ReverseMap();
-            CreateMap<Produto, ProdutoDTO>().ReverseMap();
+            CreateMap<Categoria, CategoriaDto>().ReverseMap();
+            CreateMap<Endereco, EnderecoDto>().ReverseMap();
+            CreateMap<Fornecedor, FornecedorDto>().ReverseMap();
+            CreateMap<Produto, ProdutoDto>().ReverseMap();
         }
     }
 }

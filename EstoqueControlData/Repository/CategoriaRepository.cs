@@ -17,7 +17,7 @@ namespace EstoqueControlData.Repository
         {
             return await _context.Categorias.AsNoTracking()
                 .Include(c => c.Produtos)
-                .FirstOrDefaultAsync(c => c.Id == categoriaId);
+                .FirstOrDefaultAsync(c => c.Id == categoriaId) ?? new Categoria();
         }
     }
 }

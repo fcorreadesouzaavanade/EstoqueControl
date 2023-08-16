@@ -34,7 +34,7 @@ namespace EstoqueControlBusiness.Services
 
         protected bool Validar<TValidador, TEntidade>(TValidador validador, TEntidade entidade)
             where TValidador : AbstractValidator<TEntidade>
-            where TEntidade : _BaseModel
+            where TEntidade : BaseModel
         {
             var resultado = validador.Validate(entidade);
             if(resultado.IsValid) return true;

@@ -1,6 +1,6 @@
-namespace EstoqueControlApp.DTO
+namespace EstoqueControlApp.Dto
 {
-    public class ProdutoDTO
+    public class ProdutoDto
     {
         public Guid Id {get; set; }
         public string Nome { get; set; }

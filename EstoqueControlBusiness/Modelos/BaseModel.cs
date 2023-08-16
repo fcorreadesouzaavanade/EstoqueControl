@@ -1,8 +1,8 @@
 namespace EstoqueControlBusiness.Modelos
 {
-    public class _BaseModel
+    public class BaseModel
     {
-        public _BaseModel()
+        public BaseModel()
         {
             Id = Guid.NewGuid();
         }

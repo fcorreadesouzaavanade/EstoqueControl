@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EstoqueControlBusiness.Modelos
 {
-    public class Categoria : _BaseModel
+    public class Categoria : BaseModel
     {
         public string Nome { get; set; }
 

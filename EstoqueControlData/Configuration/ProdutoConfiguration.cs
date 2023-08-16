@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EstoqueControlData.Configuration
 {
-    public class ProdutoConfiguration : _BaseConfiguration<Produto>
+    public class ProdutoConfiguration : BaseConfiguration<Produto>
     {
         public override void ConcreteConfigure(EntityTypeBuilder<Produto> builder)
         {
